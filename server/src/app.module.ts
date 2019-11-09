@@ -1,10 +1,16 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { DatabaseModule } from './database/database.module';
+import { ConfigService } from './config/config.service';
+import { AuthModule } from './app/auth/auth.module';
+import { UserModule } from './app/user/user.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [DatabaseModule, AuthModule, UserModule],
+  providers: [
+    {
+      provide: ConfigService,
+      useValue: new ConfigService('.env')
+    }
+  ]
 })
-export class AppModule {}
+export class AppModule { }
