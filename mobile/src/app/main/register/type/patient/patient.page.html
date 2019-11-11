@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Medical History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="submit()">
+    <h2 class="sub">Hereditary Diseases</h2>
+    <p>Please check the following diseases if you have them.</p>
+    <ion-item>
+      <ion-checkbox [(ngModel)]="medical_history.historical_data.hereditary_diseases.asthma" name="asthma" slot="start">
+      </ion-checkbox>
+      <ion-label>Asthma</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-checkbox [(ngModel)]="medical_history.historical_data.hereditary_diseases.diabetes" name="diabetes"
+        slot="start"></ion-checkbox>
+      <ion-label>Diabetes</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-checkbox [(ngModel)]="medical_history.historical_data.hereditary_diseases.high_blood_pressure"
+        name="high_blood_pressure" slot="start">
+      </ion-checkbox>
+      <ion-label>High Blood Pressure</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-checkbox [(ngModel)]="medical_history.historical_data.hereditary_diseases.low_blood_pressure"
+        name="low_blood_pressure" slot="start">
+      </ion-checkbox>
+      <ion-label>Low Blood Pressure</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-checkbox [(ngModel)]="medical_history.historical_data.hereditary_diseases.cancer" name="cancer" slot="start">
+      </ion-checkbox>
+      <ion-label>Cancer</ion-label>
+    </ion-item>
+    <h2 class="sub">Recent Medical Intake</h2>
+    <p>Leave it blank if none.</p>
+    <ion-item>
+      <ion-textarea [(ngModel)]="medical_history.historical_data.hereditary_diseases.intake" name="intake"
+        placeholder="Medical Intake">
+      </ion-textarea>
+    </ion-item>
+    <h2 class="sub">Other Medical History</h2>
+    <p>Leave it blank if none.</p>
+    <ion-item>
+      <ion-textarea [(ngModel)]="medical_history.historical_data.hereditary_diseases.others" name="others"
+        placeholder="Others">
+      </ion-textarea>
+    </ion-item>
+    <ion-button id="submit" type="submit" expand="full" color="primary-red" style="margin-top: 3em">Submit and Continue
+      to App
+    </ion-button>
+  </form>
+</ion-content>

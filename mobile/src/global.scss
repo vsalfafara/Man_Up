@@ -24,3 +24,27 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.ion-color-primary-red {
+   --ion-color-base: var(--ion-color-primary-red);
+   --ion-color-base-rgb: var(--ion-color-primary-red-rgb);
+   --ion-color-contrast: var(--ion-color-primary-red-contrast);
+   --ion-color-contrast-rgb: var(--ion-color-primary-red-contrast-rgb);
+   --ion-color-shade: var(--ion-color-primary-red-shade);
+   --ion-color-tint: var(--ion-color-primary-red-tint);
+   color: white;
+}
+
+ion-item {
+   margin-top: .5em;
+   --padding-start: 12px;
+   --min-height: 20px;
+   --inner-padding-end: 12px;
+   --highlight-color-valid: #FF6464;
+
+   ion-checkbox {
+      --background-checked: #FF6464;
+      --border-color: #FF6464;
+      --border-color-checked: #FF6464;
+   }
+}

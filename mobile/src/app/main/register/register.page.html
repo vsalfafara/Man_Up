@@ -1,0 +1,31 @@
+<ion-content class="ion-padding">
+  <div class="hero">
+    <div class="hero-icon">
+      <img src="assets/icon.png" alt="">
+    </div>
+    <div class="ion-text-center">
+      <h3>Register</h3>
+    </div>
+  </div>
+  <form (ngSubmit)="register()">
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="user.email_address" name="email" placeholder="Email Address" clearInput>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="user.full_name" name="full_name" placeholder="Full Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="user.mobile_number" name="mobile_number" placeholder="Mobile Number">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" [(ngModel)]="user.password" name="password" placeholder="Password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" [(ngModel)]="user.password_confirm" name="password" placeholder="Confirm Password">
+      </ion-input>
+    </ion-item>
+    <ion-button id="submit" type="submit" expand="full" color="primary-red">Register</ion-button>
+  </form>
+</ion-content>

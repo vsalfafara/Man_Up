@@ -8,6 +8,7 @@ export const Schema = new mongoose.Schema({
    overall_rate: Number,
    photo: String,
    total_rate: Number,
+   mobile_number: Number
 }, {
    collection: 'user'
 });

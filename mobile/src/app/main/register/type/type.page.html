@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Welcome {{user.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding ion-text-center">
+  <p>Please choose your account type</p>
+  <div class="types">
+    <div class="type">
+      <button (click)="type('patient')">
+        <img src="assets/patient.png" alt="">
+        <p>Patient</p>
+      </button>
+    </div>
+    <div class="type">
+      <button (click)="type('specialist')">
+        <img src="assets/specialist.png" alt="">
+        <p>Health Specialist</p>
+      </button>
+    </div>
+  </div>
+</ion-content>

@@ -12,8 +12,19 @@
    color: white;
 }
 
+:host {
+   .item-interactive.ion-valid {
+      --highlight-background: var(--ion-color-primary-red) !important;
+   }
+}
+
+.main {
+   min-height: 100vh;
+   overflow: hidden;
+}
+
 .hero {
-   padding-top: 5em;
+   padding-top: 3em;
 
    .hero-icon {
       display: flex;
@@ -24,15 +35,22 @@
    }
 
    h3 {
+      font-size: 2em;
       font-weight: bolder;
-      color: var(--ion-color-primary-red);
+      color: var(--ion-color-primary-red)
+   }
+
+   p {
+      font-size: .7em;
    }
 }
 
-.buttons {
-   margin-top: 4em;
+.cta {
+   form {
+      margin-top: 2em;
+   }
 
-   * {
+   ion-button {
       margin: 20px 0;
    }
 }

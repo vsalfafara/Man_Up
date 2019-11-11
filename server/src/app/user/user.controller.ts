@@ -1,6 +1,5 @@
 import { Controller, Get, Param, Post, Body } from '@nestjs/common';
 import { UserService } from './user.service'
-import yargsParser = require('yargs-parser');
 
 @Controller('user')
 export class UserController {

@@ -1,15 +1,26 @@
-<ion-content padding>
-  <div class="hero">
-    <div class="hero-icon">
-      <img src="assets/icon.png" alt="">
+<ion-content>
+  <div class="main ion-padding">
+    <div class="hero">
+      <div class="hero-icon">
+        <img src="assets/icon.png" alt="">
+      </div>
+      <div class="ion-text-center">
+        <h3>CasualDoc</h3>
+        <p>Schedule a Checkup with a tap</p>
+      </div>
     </div>
-    <div class="ion-text-center">
-      <h3>CasualDoc</h3>
-      Schedule a Checkup with a tap
+    <div class="cta">
+      <form (ngSubmit)="logForm()">
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="user.email_address" name="email" placeholder="Email Address"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" [(ngModel)]="user.password" name="password" placeholder="Password"></ion-input>
+        </ion-item>
+        <ion-button id="submit" type="submit" expand="block" size="small" color="primary-red">Login</ion-button>
+      </form>
+      <ion-button expand="block" size="small" color="primary-red" [routerLink]="['/register']">Register
+      </ion-button>
     </div>
-  </div>
-  <div class="buttons">
-    <ion-button expand="full" color="primary-red" [routerLink]="['/login']">Login</ion-button>
-    <ion-button expand="full" color="primary-red" [routerLink]="['/register']">Register</ion-button>
   </div>
 </ion-content>
