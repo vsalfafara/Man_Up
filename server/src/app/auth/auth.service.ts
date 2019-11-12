@@ -30,6 +30,7 @@ export class AuthService {
       const accessToken = this.jwt.sign(payload)
 
       return {
+         id: validatedUser._id,
          access_token: accessToken,
          status: 200
       }

@@ -24,4 +24,10 @@ export class UserController {
    create(@Body() user) {
       return this.user.create(user)
    }
+
+   @Post('coords')
+   setCoords(@Body('id') id, @Body('coords') coords) {
+      return this.user.setCoords(id, coords)
+   }
+
 }

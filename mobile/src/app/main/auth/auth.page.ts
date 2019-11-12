@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ServerService } from '../tools/server.service';
+import { AuthService } from '../tools/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -10,15 +10,16 @@ import { ServerService } from '../tools/server.service';
 export class AuthPage implements OnInit {
   user = {}
 
-  constructor(private http: HttpClient, private server: ServerService) { }
+  constructor(
+    private auth: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
-  logForm() {
-    this.http.post(this.server.getEndpoint('auth'), this.user)
-      .subscribe((data) => {
-        console.log(data)
-      })
+  submit() {
+    this.auth.login(this.user)
+    this.router.navigate(['home'])
   }
 }

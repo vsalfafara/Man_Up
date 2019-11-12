@@ -1,23 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ServerService } from '../../../tools/server.service'
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router'
+import { AuthService } from 'src/app/main/tools/auth/auth.service';
+import { Patient } from 'src/app/main/tools/class/patient/patient';
+import { AssetService } from 'src/app/main/tools/asset/asset.service';
+import { Disease } from 'src/app/main/tools/class/disease/disease';
+import * as lodash from 'lodash'
 
 @Component({
   selector: 'app-patient',
   templateUrl: './patient.page.html',
   styleUrls: ['./patient.page.scss'],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class PatientPage implements OnInit {
 
-  medical_history = {
+  patient = {
     historical_data: {
       hereditary_diseases: {
         asthma: false,
         cancer: false,
         diabetes: false,
-        high_blood_pressure: false,
-        low_blood_pressure: false
+        high_bp: false,
+        low_bp: false
       },
       intake: String,
       others: String
@@ -26,24 +30,22 @@ export class PatientPage implements OnInit {
   }
 
   constructor(
-    private http: HttpClient,
-    private server: ServerService,
+    private auth: AuthService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.medical_history.user_id = params.id
-      console.log(this.medical_history)
+      this.patient.user_id = params.id
+      console.log(this.patient)
     })
   }
 
   submit() {
-    console.log(this.medical_history)
-    this.http.post(this.server.getEndpoint('patient'), this.medical_history)
-      .subscribe(data => {
-        console.log(data)
+    this.auth.newPatient(this.patient)
+      .subscribe((data: Patient) => {
+        this.auth.setType('patient')
         this.router.navigateByUrl('/home')
       })
   }

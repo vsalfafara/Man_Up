@@ -1,16 +1,25 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Home
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
   <div id="map">
+    <ion-buttons>
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <div class="action">
+      <ion-list *ngIf="checkType('specialist')">
+        <ion-button expand="full" (click)="standby()" color="primary-red">Stand By
+        </ion-button>
+      </ion-list>
+      <ion-list *ngIf="checkType('patient')">
+        <ion-item color="primary-red">
+          <ion-label>Specialists</ion-label>
+          <ion-select [(ngModel)]="specialistTitle" value="Pediatrician" okText="Select" cancelText="Close">
+            <ion-select-option *ngFor="let specialist of specialists" value="{{specialist}}">{{specialist}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-button expand="full" (click)="findSpecialist()" color="primary-red">Find
+          Specialist
+        </ion-button>
+      </ion-list>
+    </div>
   </div>
-  <ion-button expand="full" (click)="getLocation()">Track Location</ion-button>
 </ion-content>

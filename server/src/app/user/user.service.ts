@@ -31,6 +31,7 @@ export class UserService {
          console.log(error.message)
       }
    }
+
    async getUser(email_address) {
       try {
          return await this.user.findOne({ 'email_address': email_address }).exec()
@@ -38,6 +39,10 @@ export class UserService {
       catch (error) {
          console.log(error.message)
       }
+   }
+
+   async setCoords(id, coords) {
+      return await this.user.findByIdAndUpdate(id, { coordinates: coords })
    }
 
    async create(user) {

@@ -6,6 +6,10 @@ export const Schema = new mongoose.Schema({
    password: String,
    email_address: String,
    overall_rate: Number,
+   coordinates: {
+      latitude: Number,
+      longitude: Number
+   },
    photo: String,
    total_rate: Number,
    mobile_number: Number

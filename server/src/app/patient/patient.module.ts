@@ -3,6 +3,7 @@ import { PatientController } from './patient.controller';
 import { PatientService } from './patient.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Schema } from '../tools/schema/patient.schema';
+import { DiseasesModule } from './diseases/diseases.module';
 
 const mongoose = MongooseModule.forFeature([
   {
@@ -12,7 +13,7 @@ const mongoose = MongooseModule.forFeature([
 ])
 
 @Module({
-  imports: [mongoose],
+  imports: [mongoose, DiseasesModule],
   controllers: [PatientController],
   providers: [PatientService]
 })

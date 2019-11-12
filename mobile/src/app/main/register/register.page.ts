@@ -1,35 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ServerService } from '../tools/server.service'
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../tools/class/user'
+import { AuthService } from '../tools/auth/auth.service'
+import { User } from '../tools/class/user/user'
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
 })
-export class RegisterPage implements OnInit {
+export class RegisterPage {
 
   user = {
     email_address: "",
     full_name: "",
     mobile_number: "",
     password: "",
-    password_confirm: ""
+    password_confirm: "",
   }
 
   constructor(
-    private http: HttpClient,
-    private server: ServerService,
-    private router: Router
+    private router: Router,
+    private auth: AuthService,
   ) { }
 
-  ngOnInit() {
+  register() {
+    this.auth.register(this.user)
+      .subscribe((data: User) => {
+        console.log(data)
+        this.login({ id: data._id, name: data.full_name });
+      })
   }
 
-  register() {
-    this.http.post(this.server.getEndpoint('user'), this.user)
-      .subscribe((data: User) => this.router.navigate(['type', { id: data._id, name: data.full_name }]))
+  login(data) {
+    this.auth.login({ email_address: this.user.email_address, password: this.user.password })
+    this.router.navigate(['type', data])
   }
 }
