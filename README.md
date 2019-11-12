@@ -13,7 +13,7 @@ Before running both server and mobile endpoints, you need the following setup in
 * [NodeJS](https://nodejs.org/en/)
 * [MongoDB Server](https://www.mongodb.com/what-is-mongodb)
 
-After installing NodeJS and MongoDB Server, clone this repository. Create a folder called data in the root directory of the disk you cloned this repository in. Inside the folder, create another one called db. This is a requirement for MongoDB server to start.
+After installing NodeJS and MongoDB Server, clone this repository. Create a folder called **data** in the root directory of the disk you cloned this repository in. Inside the folder, create another one called **db**. This is a requirement for MongoDB server to start.
 
 Once done, open a terminal and execute the following command (make sure this command is available in the Environment Variables):
 ```
