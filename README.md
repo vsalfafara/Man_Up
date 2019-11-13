@@ -67,6 +67,6 @@ ionic cordova run browser
 
 * Allen and Miguel for sharing most of the idea used for this app
 * Von for materializing the idea into an app
-* Huge ammount of free time
+* Coke
 * etc
 
