@@ -14,19 +14,6 @@
         <ion-label>{{title.title}}</ion-label>
       </ion-item>
     </ion-radio-group>
-    <h2 class="sub">Specialist Type</h2>
-    <ion-radio-group [(ngModel)]="specialist.type" name="type">
-      <ion-item>
-        <ion-radio value="public" slot="start">
-        </ion-radio>
-        <ion-label>Public</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-radio value="private" slot="start">
-        </ion-radio>
-        <ion-label>Private</ion-label>
-      </ion-item>
-    </ion-radio-group>
     <h2 class="sub">Checkup Fee</h2>
     <ion-item>
       <ion-input type="number" [(ngModel)]="specialist.fee" name="fee"></ion-input>

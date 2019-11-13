@@ -14,7 +14,6 @@ export class SpecialistPage implements OnInit {
   specialist = {
     title: "",
     fee: 0,
-    type: "",
     user_id: ""
   }
 
