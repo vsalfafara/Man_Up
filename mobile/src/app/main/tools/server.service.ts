@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ServerService {
-  server: String = "http://192.168.100.4:3000/"
+  server: String = "http://localhost:3000/"
 
   constructor() { }
 
